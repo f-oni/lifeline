@@ -34,14 +34,12 @@ jobs:
             sudo chown -R $USER /var/www
             sudo chmod -R +rwx /var/www
             cd /var/www/
-            # mkdir tmp/
-            git clone https://github.com/f-oni/lifeline.git 
+            mkdir tmp/
+            git clone https://github.com/f-oni/lifeline.git /var/www/tmp 
 
-            # rsync -a --delete /var/www/tmp/ /var/www/
+            rsync -a --delete /var/www/tmp/ /var/www/
             
             cd /var/www/lifeline/
-
-            # sudo rm -r tmp/
 
             sudo apt update
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
@@ -55,5 +53,7 @@ jobs:
             
             npm install express
             pm2 restart index.js || pm2 start index.js
+
+            sudo rm -r /var/www/tmp/
   
   
