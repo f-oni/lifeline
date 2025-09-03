@@ -34,14 +34,15 @@ jobs:
             sudo chown -R $USER /var/www
             sudo chmod -R +rwx /var/www
             cd /var/www/
-            mkdir tmp/
-            git clone https://github.com/f-oni/lifeline.git /var/www/tmp/
+            # mkdir tmp/
+            git clone https://github.com/f-oni/lifeline.git 
 
-            rsync -a --delete /var/www/tmp/ /var/www/
-            sudo rm -r tmp/
-
-            cd /var/www/lifeline/
+            # rsync -a --delete /var/www/tmp/ /var/www/
             
+            cd /var/www/lifeline/
+
+            # sudo rm -r tmp/
+
             sudo apt update
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 
